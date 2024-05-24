@@ -1,0 +1,9 @@
+{
+  "extends": "@tsconfig/node20/tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "noErrorTruncation": true
+  },
+  "references": [{ "path": "../packages/tsconfig/base.tsconfig.json" }],
+  "include": ["src", ".eslintrc.js", "jest.config.ts"]
+}

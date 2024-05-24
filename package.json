@@ -1,0 +1,46 @@
+{
+  "name": "competence-assistant",
+  "version": "2.0.0",
+  "engines": {
+    "node": "20.x"
+  },
+  "scripts": {
+    "dev": "concurrently --names 'EMULATOR,SHARED,SERVER,CLIENT' --prefix-colors '#FFCB35,#B24BF3,#68A063,#61DAFB' --kill-others 'pnpm --filter server emulator' 'pnpm --filter shared dev' 'wait-on http://127.0.0.1:4000/ && pnpm --filter server dev' 'wait-on http://127.0.0.1:3000/health && pnpm --filter client dev'",
+    "dev:server": "concurrently --names 'EMULATOR,SERVER' --prefix-colors '#FFCB35,#68A063' --kill-others 'pnpm --filter server emulator' 'wait-on http://127.0.0.1:4000/ && pnpm --filter server dev'",
+    "dev:client": "pnpm --filter client dev",
+    "dev:client:prod": "pnpm --filter client dev:prod",
+    "dev:client:mock": "pnpm --filter client dev:mock",
+    "migrate": "pnpm --filter server migrate",
+    "test": "pnpm test:server && pnpm test:client",
+    "test:server": "pnpm --filter server test",
+    "test:server:watch": "pnpm --filter server test:watch",
+    "test:client": "pnpm --filter client test",
+    "test:client:watch": "pnpm --filter client test:watch",
+    "prepare": "husky install",
+    "lint": "pnpm --filter client --filter server lint",
+    "typecheck": "pnpm --filter client --filter server typecheck",
+    "preinstall": "npx only-allow pnpm",
+    "lint:commit": "commitlint",
+    "build:shared": "pnpm --filter shared build"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "pnpm lint"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "17.4.1",
+    "@commitlint/config-conventional": "17.4.0",
+    "concurrently": "7.4.0",
+    "husky": "^8.0.3",
+    "lint-staged": "15.2.2",
+    "prettier": "^2.8.8",
+    "wait-on": "6.0.1"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "printWidth": 120
+  }
+}

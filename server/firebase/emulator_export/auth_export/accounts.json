@@ -1,0 +1,102 @@
+{
+  "kind": "identitytoolkit#DownloadAccountResponse",
+  "users": [
+    {
+      "localId": "27ilYsU0gvCE6C0xkmXjcYsCezlq",
+      "displayName": "Admin 1",
+      "photoUrl": "https://api.multiavatar.com/admin-1.png",
+      "email": "admin-1@domain.com",
+      "emailVerified": true,
+      "lastLoginAt": "1665200472471",
+      "providerUserInfo": [
+        {
+          "providerId": "google.com",
+          "rawId": "6352222274203923316742013478659852589258",
+          "federatedId": "6352222274203923316742013478659852589258",
+          "displayName": "Admin 1",
+          "photoUrl": "https://api.multiavatar.com/admin-1.png",
+          "email": "admin-1@domain.com"
+        }
+      ],
+      "lastRefreshAt": "2022-10-08T03:41:12.471Z",
+      "customAttributes": "{\"admin\":true}"
+    },
+    {
+      "localId": "L45AQsDO7ghrhmr9tRCsIzqFo3Im",
+      "displayName": "Admin 2",
+      "photoUrl": "https://api.multiavatar.com/admin-2.png",
+      "email": "admin-2@domain.com",
+      "emailVerified": true,
+      "lastLoginAt": "1665200161425",
+      "providerUserInfo": [
+        {
+          "providerId": "google.com",
+          "rawId": "6288880546222203961341586235051175302227",
+          "federatedId": "6288880546222203961341586235051175302227",
+          "displayName": "Admin 2",
+          "photoUrl": "https://api.multiavatar.com/admin-2.png",
+          "email": "admin-2@domain.com"
+        }
+      ],
+      "lastRefreshAt": "2022-10-08T03:36:01.425Z",
+      "customAttributes": "{\"admin\":true}"
+    },
+    {
+      "localId": "OPVxvr3xv29FkcEmWKEIqL9N4OM8",
+      "displayName": "User 1",
+      "photoUrl": "https://api.multiavatar.com/user-1.png",
+      "email": "user-1@domain.com",
+      "emailVerified": true,
+      "lastLoginAt": "1665200285238",
+      "providerUserInfo": [
+        {
+          "providerId": "google.com",
+          "rawId": "3262472359432499999747052829970249187663",
+          "federatedId": "3262472359432499999747052829970249187663",
+          "displayName": "User 1",
+          "photoUrl": "https://api.multiavatar.com/user-1.png",
+          "email": "user-1@domain.com"
+        }
+      ],
+      "lastRefreshAt": "2022-10-08T03:38:05.238Z"
+    },
+    {
+      "localId": "mEY3fOUyZKHQGt6Go1LebXfjfAyv",
+      "displayName": "User 3",
+      "photoUrl": "https://api.multiavatar.com/user-3.png",
+      "email": "user-3@domain.com",
+      "emailVerified": true,
+      "lastLoginAt": "1665200266400",
+      "providerUserInfo": [
+        {
+          "providerId": "google.com",
+          "rawId": "6491481210669633591608879041319434780979",
+          "federatedId": "6491481210669633591608879041319434780979",
+          "displayName": "User 3",
+          "photoUrl": "https://api.multiavatar.com/user-3.png",
+          "email": "user-3@domain.com"
+        }
+      ],
+      "lastRefreshAt": "2022-10-08T03:37:46.400Z"
+    },
+    {
+      "localId": "sKUNs7QcRsyr2iT769RqRnb3t1Tk",
+      "displayName": "User 2",
+      "photoUrl": "https://api.multiavatar.com/user-2.png",
+      "email": "user-2@domain.com",
+      "emailVerified": true,
+      "lastLoginAt": "1665200222693",
+      "providerUserInfo": [
+        {
+          "providerId": "google.com",
+          "rawId": "7666108908957721828647247196975225410522",
+          "federatedId": "7666108908957721828647247196975225410522",
+          "displayName": "User 2",
+          "photoUrl": "https://api.multiavatar.com/user-2.png",
+          "email": "user-2@domain.com"
+        }
+      ],
+      "lastRefreshAt": "2022-10-08T03:37:02.693Z"
+    }
+  ]
+}

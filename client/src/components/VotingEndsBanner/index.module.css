@@ -1,0 +1,12 @@
+.pulse {
+  animation: pulse 2s cubic-bezier(0.13, 0.92, 0.18, 0.8) infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+  }
+}

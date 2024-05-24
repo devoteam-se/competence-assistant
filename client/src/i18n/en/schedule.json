@@ -1,0 +1,30 @@
+{
+  "sessions": "Sessions",
+  "schedule": "Schedule",
+  "pastAlert": "Cannot edit past event",
+  "breaks": {
+    "title": "Breaks",
+    "nameLabel": "Name",
+    "namePlaceholder": "Break name",
+    "durationLabel": "Duration",
+    "durationPlaceholder": "Duration in minutes",
+    "nameRequired": "Break must have a name",
+    "durationInvalid": "Duration must be a number",
+    "add": "Add break"
+  },
+  "rooms": {
+    "title": "Rooms",
+    "locationLabel": "Location",
+    "locationPlaceholder": "Select location event",
+    "roomsLabel": "Rooms from {{location}}",
+    "roomsPlaceholder": "Select or add rooms",
+    "addRoom": "Add room only for this event",
+    "roomNameRequired": "Room must have a name"
+  },
+  "calendarEvent": {
+    "by": "by {{names}}",
+    "votes": "Session has {{count}} registered attendee(s)",
+    "hostConflicts": "'{{name}}' is also hosting '{{sessions}}'",
+    "voteConflicts": "'{{session}}' has {{count}} overlapping attendee(s)"
+  }
+}

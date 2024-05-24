@@ -1,0 +1,35 @@
+.fc-day-today {
+  background-color: inherit !important;
+}
+.fc-timegrid-slot {
+  height: 5rem !important;
+  min-height: 5rem !important;
+}
+
+.fc-timegrid-event {
+  overflow: hidden;
+}
+
+.fc-event {
+  cursor: pointer;
+}
+
+.fc-media-screen {
+  user-select: none;
+}
+
+.warning {
+  border: 1px solid white !important;
+  outline: 2px solid blue !important;
+}
+
+.error {
+  border: 1px solid white !important;
+  outline: 2px solid red !important;
+}
+
+.disabled {
+  opacity: 0.3 !important;
+  background-color: #ced4da !important;
+  border-color: #ced4da !important;
+}

@@ -1,0 +1,71 @@
+{
+  "page": {
+    "title": "Events",
+    "action": "Add an event",
+    "votingBanner": "Voting ends in: "
+  },
+  "grid": {
+    "empty": "No events yet",
+    "noMatch": "No events match current filter"
+  },
+  "filter": {
+    "title": "Filter",
+    "clear": "Clear all",
+    "active": "Only visible",
+    "future": "Only upcoming",
+    "past": "Only past",
+    "ongoing": "Only ongoing",
+    "votable": "Only open for registration"
+  },
+  "sort": {
+    "title": "Order",
+    "name": "Alphabetical",
+    "newest": "Newest first",
+    "oldest": "Oldest first"
+  },
+  "card": {
+    "dates": "Between {{start}} and {{end}}",
+    "sessionCount": "{{count}} sessions",
+    "attendeeCount": "{{count}} registered attendees",
+    "schedule": "View schedule",
+    "registrationDeadline": "Registration closes on {{date}}",
+    "registrationClosed": "Registration closed on {{date}}"
+  },
+  "actions": {
+    "edit": "Edit",
+    "editTitle": "Edit event",
+    "hide": "Hide",
+    "hideTitle": "Hide event",
+    "confirmHide1": "Are you sure you want to hide '{{name}}'?",
+    "confirmHide2": "This will hide it from the left-side navigation menu",
+    "show": "Make visible",
+    "showTitle": "Make event visible",
+    "confirmShow1": "Are you sure you want to make '{{name}}' visible?",
+    "confirmShow2": "This will show it in the left-side navigation menu",
+    "delete": "Delete",
+    "deleteTitle": "Delete event",
+    "confirmDelete1": "Are you sure you want to delete '{{name}}'?",
+    "confirmDelete2": "This event has {{sessionCount}} sessions and {{attendeeCount}} registered attendees.",
+    "copyUrl": "Copy URL",
+    "copiedUrl": "URL copied!"
+  },
+  "notifications": {
+    "created": "{{name}} added!",
+    "updated": "Event updated!",
+    "deleted": "Event deleted!",
+    "hidden": "Event is now hidden",
+    "shown": "Event is now visible"
+  },
+  "form": {
+    "name": "Name",
+    "namePlaceholder": "Enter event name",
+    "duration": "Start and end date",
+    "enableRegistration": "Enable registration",
+    "registrationDeadline": "Registration deadline",
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "schedule": {
+    "empty": "Event schedule will be shown here when it is ready"
+  }
+}

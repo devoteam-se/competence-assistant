@@ -1,0 +1,50 @@
+{
+  "permissions": {
+    "title": "User Permissions",
+    "admins": "Admins",
+    "nonAdmins": "Users",
+    "promote": "Promote to Admin",
+    "demote": "Demote to User",
+    "filter": "Filter by name or email"
+  },
+  "tracks": {
+    "title": "Tracks",
+    "add": "Add Track",
+    "edit": "Edit Track",
+    "delete": "Delete Track",
+    "deleteConfirm": "Are you sure you want to delete {{name}}?",
+    "empty": "There are no tracks yet.",
+    "form": {
+      "nameLabel": "Name",
+      "namePlaceholder": "Enter the track name",
+      "colorLabel": "Color",
+      "colorPlaceholder": "Enter a hex color code for the track",
+      "colorPickerLabel": "Or pick a color",
+      "nameRequired": "The track must have a name",
+      "invalidColor": "The color must be a valid hex color code",
+      "colorPreview": "Color Preview",
+      "previewSession": "Preview Session",
+      "previewBadge": "Preview Badge",
+      "save": "Save",
+      "cancel": "Cancel"
+    }
+  },
+  "locations": {
+    "title": "Locations",
+    "add": "Add Location",
+    "edit": "Edit Location",
+    "delete": "Delete Location",
+    "deleteConfirm": "Are you sure you want to delete {{name}}?",
+    "empty": "There are no locations yet.",
+    "form": {
+      "nameLabel": "Name",
+      "namePlaceholder": "Enter the location name",
+      "nameRequired": "The location must have a name",
+      "roomsLabel": "Rooms",
+      "roomsPlaceholder": "Enter a room name to add it to the location",
+      "addRoom": "Add '{{name}}'",
+      "save": "Save",
+      "cancel": "Cancel"
+    }
+  }
+}

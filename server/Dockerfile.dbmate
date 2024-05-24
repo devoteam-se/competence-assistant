@@ -1,0 +1,5 @@
+FROM --platform=linux/amd64 amacneil/dbmate:latest
+
+COPY ./src/pkg/db/migrations ./db/migrations
+
+ENTRYPOINT ["/usr/local/bin/dbmate","--no-dump-schema"]

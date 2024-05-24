@@ -1,0 +1,108 @@
+{
+  "page": {
+    "title": "Sessions",
+    "action": "Add a session"
+  },
+  "grid": {
+    "empty": "No sessions yet",
+    "noMatch": "No sessions match current filter"
+  },
+  "filter": {
+    "title": "Filter",
+    "clear": "Clear all",
+    "mine": "Hosted by me",
+    "favourites": "My Favourites",
+    "votes": "My Registrations",
+    "votable": "Open for registration",
+    "events": "Events",
+    "noEvents": "No more events",
+    "tracks": "Tracks",
+    "noTracks": "No more tracks",
+    "levels": "Levels",
+    "noLevels": "No more levels",
+    "types": "Types",
+    "noTypes": "No more types"
+  },
+  "sort": {
+    "title": "Order",
+    "name": "Alphabetical",
+    "newest": "Newest first",
+    "oldest": "Oldest first",
+    "votes": "Most attendees"
+  },
+  "actions": {
+    "edit": "Edit",
+    "editTitle": "Edit session",
+    "copy": "Copy",
+    "copyTitle": "Copy session",
+    "delete": "Delete",
+    "confirmDeleteTitle": "Delete session",
+    "confirmDeleteMessage": "Are you sure you want to delete '{{name}}'?"
+  },
+  "vote": {
+    "join": "I want to join",
+    "registered": "Registered",
+    "fullTitle": "Session is full",
+    "fullDescription": "This session is already full, and you may not have a spot unless someone changes their mind. Do you want to join anyway?",
+    "confirm": "Join anyway",
+    "cancel": "Cancel"
+  },
+  "form": {
+    "pastAlert": "For a past session you can only edit the links",
+    "nameLabel": "Name",
+    "namePlaceholder": "Enter the name of the session",
+    "descriptionLabel": "Description",
+    "descriptionPlaceholder": "Enter a description of the session",
+    "preview": "Preview",
+    "previewEmpty": "_Nothing to preview. Write a description and preview it here_",
+    "durationLabel": "Duration",
+    "durationPlaceholder": "Pick the duration of the session",
+    "typeLabel": "Type",
+    "typePlaceholder": "Pick a type for the session",
+    "levelLabel": "Level",
+    "levelPlaceholder": "Pick a level for the session",
+    "tracksLabel": "Tracks",
+    "tracksPlaceholder": "Pick one or more tracks for the session",
+    "hostsLabel": "Hosts",
+    "hostsPlaceholder": "Pick one or more hosts for the session",
+    "maxAttendeesLabel": "Maximum number of participants",
+    "maxAttendeesPlaceholder": "Enter a number between 1 and 1000",
+    "meetingLabel": "Meeting link",
+    "meetingPlaceholder": "Enter a link to a virtual meeting",
+    "slidesLabel": "Slides link",
+    "slidesPlaceholder": "Enter a link to any slides you want to share",
+    "recordingsLabel": "Recording link",
+    "recordingsPlaceholder": "Enter a link to a recording of the session",
+    "feedbackLabel": "Feedback link",
+    "feedbackPlaceholder": "Enter a link to a feedback form",
+    "eventLabel": "Event",
+    "eventPlaceholder": "Pick an event for the session",
+    "eventDescription": "Adding a session to an event takes it out of draft and makes it visible to participants",
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "markdown": {
+    "hint": "You can format your description using markdown. Click here to toggle cheat sheet",
+    "element": "Element",
+    "syntax": "Syntax",
+    "link": "A complete list of syntax options can be found on "
+  },
+  "info": {
+    "meeting": "Meeting link",
+    "slides": "Slides link",
+    "recording": "Recording link",
+    "feedback": "Feedback link",
+    "missing": "{{link}} is not provided",
+    "registrants": "Registered participants"
+  },
+  "favourite": {
+    "added": "Session added to your favourites",
+    "removed": "Session removed from your favourites"
+  },
+  "status": {
+    "DRAFT": "Draft",
+    "VOTING": "Voting",
+    "SCHEDULED": "Scheduled",
+    "DONE": "Done"
+  }
+}

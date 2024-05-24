@@ -1,0 +1,19 @@
+{
+  "confirm": "Confirm",
+  "save": "Save",
+  "cancel": "Cancel",
+  "any": "Any",
+  "readMore": "Read more",
+  "empty": "Empty",
+  "loading": "Loading...",
+  "navigation": {
+    "signOut": "Sign out",
+    "sessions": "Sessions",
+    "wishes": "Wishes",
+    "events": "Events",
+    "admin": "Administer",
+    "tracks": "Tracks",
+    "permissions": "Permissions",
+    "locations": "Locations"
+  }
+}
