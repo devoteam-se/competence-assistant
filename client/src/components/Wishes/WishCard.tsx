@@ -36,55 +36,52 @@ const WishCard = ({ data: wish }: WishCardProps) => {
   }, [wish]);
 
   return (
-    <Card withBorder radius="md" style={{ display: 'flex', flexDirection: 'column' }}>
-      <Group position="apart" align="top">
-        <Box>
-          <Title size="lg">{wish.name}</Title>
-          <Text c="dimmed" fz="sm">
-            {dateLong(wish.createdAt)}
-          </Text>
-        </Box>
-        {canEdit && (
+    <Card withBorder radius="md">
+      <Stack>
+        <Group position="apart" align="top">
           <Box>
-            <WishActions data={wish} />
-          </Box>
-        )}
-      </Group>
-
-      <Divider my="sm" />
-
-      <Stack mt="0" style={{ flexGrow: '1' }}>
-        {wish.type && (
-          <Group spacing="xs">
-            <IconPresentation size={IconSize.md} />
-            <Text inline fw="bold">
-              {capitalize(wish.type)}
+            <Title size="lg">{wish.name}</Title>
+            <Text c="dimmed" fz="sm">
+              {dateLong(wish.createdAt)}
             </Text>
-          </Group>
-        )}
-        {wish.level && <SessionLevel level={wish.level} />}
+          </Box>
+          {canEdit && <WishActions data={wish} />}
+        </Group>
 
-        <Box>
+        <Divider />
+
+        <Group spacing="sm">
+          {wish.level && <SessionLevel level={wish.level} />}
+          {wish.type && (
+            <Group spacing={4}>
+              <IconPresentation size={IconSize.md} />
+              <Text inline>{capitalize(wish.type)}</Text>
+            </Group>
+          )}
+        </Group>
+
+        <Box style={{ flexGrow: '1' }}>
           <Text lineClamp={wish.type || wish.level ? 5 : 6} ref={refDescription}>
             <Markdown>{wish.description}</Markdown>
           </Text>
         </Box>
+
+        {showReadMore && (
+          <Flex mt="xs" justify="center">
+            <Button variant="subtle" size="xs" onClick={user ? () => openWishModal({ wish, user }) : undefined}>
+              {t('readMore')}
+            </Button>
+          </Flex>
+        )}
+        {user && (
+          <>
+            <Divider />
+            <Card.Section inheritPadding>
+              <UserStack users={[user]} />
+            </Card.Section>
+          </>
+        )}
       </Stack>
-      {showReadMore && (
-        <Flex mt="xs" justify="center">
-          <Button variant="subtle" size="xs" onClick={user ? () => openWishModal({ wish, user }) : undefined}>
-            {t('readMore')}
-          </Button>
-        </Flex>
-      )}
-      {user && (
-        <>
-          <Divider my="sm" />
-          <Card.Section inheritPadding>
-            <UserStack users={[user]} />
-          </Card.Section>
-        </>
-      )}
     </Card>
   );
 };

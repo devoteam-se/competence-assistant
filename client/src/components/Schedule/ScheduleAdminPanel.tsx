@@ -1,7 +1,6 @@
 import { Accordion, Stack, Text, Alert, Skeleton } from '@mantine/core';
 import React from 'react';
 
-import dayjs from 'dayjs';
 import ScheduleSession from './ScheduleSession';
 import ScheduleSessionCardInfo from './ScheduleSessionCardInfo';
 
@@ -9,7 +8,6 @@ import Breaks from './Breaks';
 import { useTranslation } from 'react-i18next';
 import Rooms from './Rooms';
 import { IconAlertCircle } from '@tabler/icons-react';
-import { Event } from '@competence-assistant/shared';
 import { CalendarEventType, useSchedule } from '@/hooks/schedule';
 
 const AccordionSection = ({ title, children }: { title: string; children: React.ReactNode }) => {
@@ -27,23 +25,21 @@ const AccordionSection = ({ title, children }: { title: string; children: React.
   );
 };
 
-const ScheduleAdminPanel = ({ event }: { event: Event }) => {
+const ScheduleAdminPanel = ({ eventId, disabled = false }: { eventId: string; disabled?: boolean }) => {
   const { t } = useTranslation('schedule');
-  const { isLoading, unscheduledSessions } = useSchedule(event.id);
-
-  const isPastEvent = dayjs(event.endDate).isBefore(dayjs());
+  const { isLoading, unscheduledSessions } = useSchedule(eventId);
 
   return (
     <Stack spacing="sm">
-      {isPastEvent && (
+      {disabled && (
         <Alert color="yellow" icon={<IconAlertCircle />}>
           {t('pastAlert')}
         </Alert>
       )}
-      {!isPastEvent && (
+      {!disabled && (
         <Accordion variant="filled" styles={{ content: { padding: 0 } }}>
           <AccordionSection title={t('rooms.title')}>
-            <Rooms eventId={event.id} />
+            <Rooms eventId={eventId} />
           </AccordionSection>
 
           <AccordionSection title={t('sessions')}>

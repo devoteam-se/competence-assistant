@@ -6,6 +6,7 @@ import ScheduleAdminPanel from '@/components/Schedule/ScheduleAdminPanel';
 import PageHeader from '@/components/PageHeader';
 import { useEvent } from '@/hooks/events';
 import { dateShort } from '@/utils/dates';
+import dayjs from 'dayjs';
 
 const Layout = ({ children }: { children: React.ReactNode[] }) => {
   const [panel, calendar] = children;
@@ -42,13 +43,14 @@ const PageAdminSchedule = () => {
     );
   }
   if (!event) return null;
+  const isPastEvent = dayjs(event.endDate).isBefore(dayjs());
 
   return (
     <>
       <PageHeader title={event.name} subtitle={dateShort(event.startDate)} />
       <Layout>
-        <ScheduleAdminPanel event={event} />
-        <AdminCalendar event={event} />
+        <ScheduleAdminPanel eventId={event.id} disabled={isPastEvent} />
+        <AdminCalendar eventId={event.id} disabled={isPastEvent} />
       </Layout>
     </>
   );

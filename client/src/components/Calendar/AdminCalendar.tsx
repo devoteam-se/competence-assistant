@@ -7,7 +7,6 @@ import dayjs from 'dayjs';
 import { useCallback, useRef } from 'react';
 import { ScheduleSessionDataSet } from '../Schedule/ScheduleSession';
 import Calendar from './Calendar';
-import { Event } from '@competence-assistant/shared';
 
 const getAddPayload = (e: ScheduleSessionDataSet, startDateStr: string, resourceId: string, eventId: string) => {
   const duration = parseInt(e.duration, 10);
@@ -39,59 +38,58 @@ const isOutside = (dropArea: HTMLDivElement, { clientX, clientY }: MouseEvent) =
   return clientX < left || clientX > right || clientY < top || clientY > bottom;
 };
 
-const AdminCalendar = ({ event }: { event: Event }) => {
-  const { removeScheduleSession, editScheduleSession, createScheduleSession } = useScheduleMutations(event.id);
-  const { editScheduleBreak, removeScheduleBreak, createScheduleBreak } = useBreakMutations(event.id);
+const AdminCalendar = ({ eventId, disabled = false }: { eventId: string; disabled?: boolean }) => {
+  const { removeScheduleSession, editScheduleSession, createScheduleSession } = useScheduleMutations(eventId);
+  const { editScheduleBreak, removeScheduleBreak, createScheduleBreak } = useBreakMutations(eventId);
 
-  const { sessions, breaks } = useSchedule(event.id, { includeConflicts: true });
+  const { sessions, breaks } = useSchedule(eventId, { includeConflicts: true });
 
   const calendarRef = useRef<FullCalendar>(null);
   const dropArea = useRef<HTMLDivElement>(null);
-  const isPastEvent = dayjs(event.endDate).isBefore(dayjs());
 
   const onAdd = (e: ScheduleSessionDataSet, startDateStr: string, resourceId?: string) => {
     if (!resourceId) return;
     if (e.type === CalendarEventType.BREAK) {
-      return createScheduleBreak(getAddBreakPayload(e, startDateStr, event.id));
+      return createScheduleBreak(getAddBreakPayload(e, startDateStr, eventId));
     }
-    createScheduleSession(getAddPayload(e, startDateStr, resourceId, event.id));
+    createScheduleSession(getAddPayload(e, startDateStr, resourceId, eventId));
   };
 
   const onEventEdit = useCallback(
     ({ id, startStr, endStr, title, extendedProps }: EventApi, resourceId?: string) => {
       if (extendedProps.type === CalendarEventType.BREAK) {
-        return editScheduleBreak({ id, title, start: startStr, end: endStr, eventId: event.id });
+        return editScheduleBreak({ id, title, start: startStr, end: endStr, eventId });
       }
       editScheduleSession({
         sessionId: extendedProps.sessionId,
         start: startStr,
         end: endStr,
         roomId: resourceId || extendedProps.roomId,
-        eventId: event.id,
+        eventId,
       });
     },
-    [editScheduleBreak, editScheduleSession, event.id],
+    [editScheduleBreak, editScheduleSession, eventId],
   );
 
   const onDragStop = (evt: EventApi, mouseEvent: MouseEvent) => {
     if (!dropArea.current || !isOutside(dropArea.current, mouseEvent)) return;
     if (evt.extendedProps.type === CalendarEventType.BREAK) {
-      return removeScheduleBreak({ id: evt.id, eventId: event.id });
+      return removeScheduleBreak({ id: evt.id, eventId });
     }
-    removeScheduleSession({ sessionId: evt.extendedProps.sessionId, eventId: event.id });
+    removeScheduleSession({ sessionId: evt.extendedProps.sessionId, eventId });
   };
 
   return (
     <Box h="100%" ref={dropArea}>
       <Calendar
         ref={calendarRef}
-        eventId={event.id}
+        eventId={eventId}
         calendarEvents={[...sessions, ...breaks]}
         showHelpers
-        editable={!isPastEvent}
-        droppable={!isPastEvent}
-        eventDrop={(info) => onEventEdit(info.event, info.newResource?.id)}
-        eventDragStop={({ event: evt, jsEvent }) => onDragStop(evt, jsEvent)}
+        editable={!disabled}
+        droppable={!disabled}
+        eventDrop={({ event, newResource }) => onEventEdit(event, newResource?.id)}
+        eventDragStop={({ event, jsEvent }) => onDragStop(event, jsEvent)}
         eventResize={({ event }) => onEventEdit(event)}
         drop={({ draggedEl, dateStr, resource }) =>
           onAdd(draggedEl.dataset as ScheduleSessionDataSet, dateStr, resource?.id)

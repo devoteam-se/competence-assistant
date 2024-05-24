@@ -1,7 +1,7 @@
 import Badge from '@/components/Badge';
 import DurationDisplay from '@/components/DurationDisplay';
 import { SessionLevelEnum, Session } from '@competence-assistant/shared';
-import { ActionIcon, Box, Flex, Group, MantineNumberSize, Stack, Text, Tooltip } from '@mantine/core';
+import { ActionIcon, Box, Group, MantineNumberSize, Stack, Text, Tooltip } from '@mantine/core';
 import {
   IconCalendarEvent,
   IconMasksTheater,
@@ -25,36 +25,36 @@ const SessionInfo = ({ session, showVoters }: Props) => {
   const { t } = useTranslation('session', { keyPrefix: 'info' });
   return (
     <Stack>
-      <Flex wrap="nowrap" align="center" gap="sm">
-        <Flex gap={4}>
+      <Group spacing="sm">
+        {session.level && <SessionLevel level={session.level} />}
+
+        <Group spacing={4}>
           <IconPresentation size={IconSize.md} />
           <Text size="sm" inline>
             {capitalize(session.type)}
           </Text>
-        </Flex>
+        </Group>
 
         <DurationDisplay duration={session.duration} size="sm" />
 
         {showVoters && session.voters && (
-          <Flex gap={4}>
+          <Group spacing={4}>
             <IconUsers size={IconSize.md} />
             <VotersCount inline size="sm" voters={session.voters} maxParticipants={session.maxParticipants} />
-          </Flex>
+          </Group>
         )}
+      </Group>
 
-        {session.level && <SessionLevel level={session.level} />}
-      </Flex>
-
-      <Flex gap="xs">
+      <Group spacing="xs">
         {session.tracks &&
           session.tracks.map((track) => <Badge key={track.id} color={track.color} label={track.name} />)}
-      </Flex>
-      <Flex gap="xs">
+      </Group>
+      <Group spacing="xs">
         <LinkUrl label={t('meeting')} url={session.meetingUrl} icon={<IconCalendarEvent size={IconSize.md} />} />
         <LinkUrl label={t('slides')} url={session.slidesUrl} icon={<IconSlideshow size={IconSize.md} />} />
         <LinkUrl label={t('recording')} url={session.recordingUrl} icon={<IconVideo size={IconSize.md} />} />
         <LinkUrl label={t('feedback')} url={session.feedbackUrl} icon={<IconMasksTheater size={IconSize.md} />} />
-      </Flex>
+      </Group>
     </Stack>
   );
 };
@@ -69,7 +69,7 @@ export const SessionLevel = ({ level, size = 'sm' }: SessionLevelProps) => {
   const levelIndex = levelArray.indexOf(level);
   return (
     <Group spacing="xs">
-      <Flex gap={2}>
+      <Group spacing={2}>
         {levelArray.map((v, index) => (
           <Box
             key={v}
@@ -81,7 +81,7 @@ export const SessionLevel = ({ level, size = 'sm' }: SessionLevelProps) => {
             })}
           />
         ))}
-      </Flex>
+      </Group>
       <Text size={size}>{capitalize(level)}</Text>
     </Group>
   );

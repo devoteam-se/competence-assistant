@@ -13,7 +13,7 @@ import IconButton from '../IconButton';
 const EventActions = ({ event }: { event: EventWithUniqueVoters }) => {
   const { t } = useTranslation('event', { keyPrefix: 'actions' });
   const { removeEvent } = useEventMutations();
-  const toggleActiveMutation = useToggleEventActive(event);
+  const toggleActiveMutation = useToggleEventActive(event.active);
   const toggleActive = useCallback(() => toggleActiveMutation(event.id), [event, toggleActiveMutation]);
 
   const url = `${new URL(window.location.href).origin}/events/${event.id}/sessions?layout=minimal`;

@@ -53,29 +53,26 @@ const useEditEvent = () => {
 const useRemoveEvent = () => {
   const { t } = useTranslation('event', { keyPrefix: 'notifications' });
 
-  const queryClient = useQueryClient();
   const updater = (oldData: Event[] | undefined, id: Event['id']) => {
     return oldData?.filter((event) => event.id !== id) || [];
   };
   const onSuccess = () => {
-    queryClient.invalidateQueries({ queryKey: ['events'] });
     sendNotification({ status: 'INFO', message: t('deleted') });
   };
   return useOptimisticMutation(Api.deleteEvent, ['events'], updater, { onSuccess });
 };
 
-export const useToggleEventActive = (event: Event) => {
+export const useToggleEventActive = (active: boolean) => {
   const { t } = useTranslation('event', { keyPrefix: 'notifications' });
 
-  const queryClient = useQueryClient();
-  const endpoint = event.active ? Api.deactivateEvent : Api.activateEvent;
   const updater = (oldData: Event[] | undefined, selectedEventId: string) => {
     return oldData?.map((event) => (event.id === selectedEventId ? { ...event, active: !event.active } : event)) || [];
   };
   const onSuccess = () => {
-    queryClient.invalidateQueries({ queryKey: ['events'] });
-    sendNotification({ status: 'INFO', message: t(event.active ? 'hidden' : 'shown') });
+    sendNotification({ status: 'INFO', message: t(active ? 'hidden' : 'shown') });
   };
-  const mutation = useOptimisticMutation(endpoint, ['events'], updater, { onSuccess });
+
+  const fn = active ? Api.deactivateEvent : Api.activateEvent;
+  const mutation = useOptimisticMutation(fn, ['events'], updater, { onSuccess });
   return mutation.mutate;
 };

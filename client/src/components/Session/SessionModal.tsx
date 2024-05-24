@@ -1,4 +1,4 @@
-import { Divider, Group, Stack } from '@mantine/core';
+import { Divider, Group, Skeleton, Stack } from '@mantine/core';
 
 import SessionInfo from './SessionInfo';
 import UsersList from '../UserList';
@@ -15,11 +15,20 @@ export type Props = {
   event?: EventWithUniqueVoters | Event;
 };
 
+const LoadingModal = () => (
+  <Stack>
+    <Skeleton height={22} />
+    <Skeleton height={20} width={250} />
+    <Skeleton height={28} width={142} />
+    <Skeleton height={300} />
+  </Stack>
+);
+
 const SessionModal = ({ sessionId, event }: Props) => {
   const { data: session, isLoading } = useSession(sessionId);
   const { canVote } = useSessionHelpers({ session, event });
 
-  if (isLoading) return 'loading...';
+  if (isLoading) return <LoadingModal />;
   if (!session) return null;
 
   return (
