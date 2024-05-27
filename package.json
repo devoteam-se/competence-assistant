@@ -29,13 +29,13 @@
     ]
   },
   "devDependencies": {
-    "@commitlint/cli": "17.4.1",
-    "@commitlint/config-conventional": "17.4.0",
-    "concurrently": "7.4.0",
-    "husky": "^8.0.3",
-    "lint-staged": "15.2.2",
-    "prettier": "^2.8.8",
-    "wait-on": "6.0.1"
+    "@commitlint/cli": "19.3.0",
+    "@commitlint/config-conventional": "19.2.2",
+    "concurrently": "8.2.2",
+    "husky": "9.0.11",
+    "lint-staged": "15.2.5",
+    "prettier": "3.2.5",
+    "wait-on": "7.2.0"
   },
   "prettier": {
     "singleQuote": true,
