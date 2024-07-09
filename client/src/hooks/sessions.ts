@@ -23,7 +23,7 @@ const defaultFilter: SessionFilter = {
   hostedBy: undefined,
   votable: false,
 };
-const defaultPagination = { page: 1, count: 9 };
+const defaultPagination = { page: 1, count: 27 };
 
 export const useSessions = ({
   initalFilter = defaultFilter,
