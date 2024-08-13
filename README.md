@@ -13,7 +13,7 @@ Competence Assistant is a tool to manage competence events. Admins can create ev
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/) v20 (LTS)
-- [pnpm](https://pnpm.io/) v7
+- [pnpm](https://pnpm.io/) v9 (run `corepack enable` if not already installed)
 - [PostgreSQL](https://www.postgresql.org/) v14
 - [dbmate](https://github.com/amacneil/dbmate) (optional)
 
