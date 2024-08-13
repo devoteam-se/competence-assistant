@@ -19,9 +19,10 @@ import { IconSize } from '@/utils/icons';
 type Props = {
   session: Session;
   showVoters?: boolean;
+  showLinks?: boolean;
 };
 
-const SessionInfo = ({ session, showVoters }: Props) => {
+const SessionInfo = ({ session, showVoters, showLinks }: Props) => {
   const { t } = useTranslation('session', { keyPrefix: 'info' });
   return (
     <Stack>
@@ -49,12 +50,14 @@ const SessionInfo = ({ session, showVoters }: Props) => {
         {session.tracks &&
           session.tracks.map((track) => <Badge key={track.id} color={track.color} label={track.name} />)}
       </Group>
-      <Group spacing="xs">
-        <LinkUrl label={t('meeting')} url={session.meetingUrl} icon={<IconCalendarEvent size={IconSize.md} />} />
-        <LinkUrl label={t('slides')} url={session.slidesUrl} icon={<IconSlideshow size={IconSize.md} />} />
-        <LinkUrl label={t('recording')} url={session.recordingUrl} icon={<IconVideo size={IconSize.md} />} />
-        <LinkUrl label={t('feedback')} url={session.feedbackUrl} icon={<IconMasksTheater size={IconSize.md} />} />
-      </Group>
+      {showLinks && (
+        <Group spacing="xs">
+          <LinkUrl label={t('meeting')} url={session.meetingUrl} icon={<IconCalendarEvent size={IconSize.md} />} />
+          <LinkUrl label={t('slides')} url={session.slidesUrl} icon={<IconSlideshow size={IconSize.md} />} />
+          <LinkUrl label={t('recording')} url={session.recordingUrl} icon={<IconVideo size={IconSize.md} />} />
+          <LinkUrl label={t('feedback')} url={session.feedbackUrl} icon={<IconMasksTheater size={IconSize.md} />} />
+        </Group>
+      )}
     </Stack>
   );
 };
