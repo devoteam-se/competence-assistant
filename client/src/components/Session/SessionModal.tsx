@@ -33,7 +33,7 @@ const SessionModal = ({ sessionId, event }: Props) => {
 
   return (
     <Stack>
-      <SessionInfo session={session} />
+      <SessionInfo session={session} showLinks />
       <Markdown>{session.description}</Markdown>
       <Divider />
       <Group position="apart">
