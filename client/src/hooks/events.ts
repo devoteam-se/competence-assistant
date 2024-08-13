@@ -13,7 +13,7 @@ type Props = {
 };
 export type ApplyFilter = <K extends keyof EventFilter>(key: K, values: EventFilter[K]) => void;
 
-const defaultPagination = { page: 1, count: 9 };
+const defaultPagination = { page: 1, count: 12 };
 const defaultFilter = { states: [] };
 
 export const useEvents = ({
