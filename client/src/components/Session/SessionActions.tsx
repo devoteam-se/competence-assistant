@@ -1,5 +1,5 @@
 import { Text, Menu, Group } from '@mantine/core';
-import { IconCopy, IconEdit, IconTrash, IconDotsVertical } from '@tabler/icons-react';
+import { IconCopy, IconEdit, IconTrash, IconDotsVertical, IconEye } from '@tabler/icons-react';
 import useIsMobile from '@/hooks/isMobile';
 import { useSessionMutations } from '@/hooks/sessionMutations';
 import { openConfirmModal, openModal } from '@/utils/openModal';
@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 import FavouriteStar from './FavouriteStar';
 import { IconSize } from '@/utils/icons';
 import IconButton from '../IconButton';
+import SessionModal from './SessionModal';
 
 interface SessionActionsProps {
   data: {
@@ -50,6 +51,14 @@ const SessionActions = ({ data: { session, event } }: SessionActionsProps) => {
     });
   };
 
+  const onOpen = () => {
+    openModal({
+      title: session.name,
+      fullScreen: isMobile,
+      children: <SessionModal sessionId={session.id} event={event} />,
+    });
+  };
+
   return (
     <Group noWrap spacing={2}>
       <FavouriteStar isFavourite={session.favourite} sessionId={session.id} />
@@ -60,6 +69,9 @@ const SessionActions = ({ data: { session, event } }: SessionActionsProps) => {
           </IconButton>
         </Menu.Target>
         <Menu.Dropdown>
+          <Menu.Item icon={<IconEye size={IconSize.md} />} onClick={onOpen}>
+            {t('view')}
+          </Menu.Item>
           {canEdit && (
             <Menu.Item icon={<IconEdit size={IconSize.md} />} onClick={onEdit}>
               {t('edit')}

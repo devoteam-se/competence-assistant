@@ -31,6 +31,7 @@
     "votes": "Most attendees"
   },
   "actions": {
+    "view": "View",
     "edit": "Edit",
     "editTitle": "Edit session",
     "copy": "Copy",
