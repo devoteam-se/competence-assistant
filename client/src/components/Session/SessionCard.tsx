@@ -1,5 +1,5 @@
 import { memo, useEffect, useRef, useState } from 'react';
-import { Button, Card, Divider, Flex, Group, NavLink, Stack, Text, Title } from '@mantine/core';
+import { Button, Card, Divider, Group, NavLink, Stack, Text, Title } from '@mantine/core';
 import { IconCalendar } from '@tabler/icons-react';
 import { Session } from '@competence-assistant/shared';
 import { Link } from 'react-router-dom';
@@ -64,17 +64,16 @@ const SessionCard = ({ data: session, showEvent, showRibbon }: SessionCardProps)
 
         <SessionInfo session={session} showVoters={showVoters} />
 
-        <Stack h="100%" spacing={0}>
+        <Stack spacing="xs" h="100%">
           <Text lineClamp={7} ref={refDescription}>
             <Markdown>{session.description}</Markdown>
           </Text>
-
           {showReadMore && (
-            <Flex mt="xs" justify="center">
+            <Group position="center">
               <Button variant="subtle" onClick={openSessionModal} size="xs">
                 {t('readMore')}
               </Button>
-            </Flex>
+            </Group>
           )}
         </Stack>
 
@@ -85,7 +84,7 @@ const SessionCard = ({ data: session, showEvent, showRibbon }: SessionCardProps)
         )}
 
         {showEvent && event && (
-          <>
+          <Stack>
             <Divider />
             <NavLink
               label={event.name}
@@ -94,7 +93,7 @@ const SessionCard = ({ data: session, showEvent, showRibbon }: SessionCardProps)
               component={Link}
               to={`/events/${event.id}`}
             />
-          </>
+          </Stack>
         )}
       </Stack>
       {status && showRibbon && <StatusRibbon status={status} />}

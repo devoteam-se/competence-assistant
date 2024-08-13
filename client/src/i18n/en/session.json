@@ -10,7 +10,7 @@
   "filter": {
     "title": "Filter",
     "clear": "Clear all",
-    "mine": "Hosted by me",
+    "mine": "Hosted by me (include drafts)",
     "favourites": "My Favourites",
     "votes": "My Registrations",
     "votable": "Open for registration",
@@ -31,6 +31,7 @@
     "votes": "Most attendees"
   },
   "actions": {
+    "view": "View",
     "edit": "Edit",
     "editTitle": "Edit session",
     "copy": "Copy",

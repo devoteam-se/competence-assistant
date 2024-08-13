@@ -7,27 +7,16 @@ type Props = {
   size?: 'md' | 'sm' | 'xs';
 };
 const sizes = {
-  md: {
-    text: 'md',
-    icon: IconSize.lg,
-    gap: 6,
-  },
-  sm: {
-    text: 'sm',
-    icon: IconSize.md,
-    gap: 4,
-  },
-  xs: {
-    text: 'xs',
-    icon: IconSize.xs,
-    gap: 2,
-  },
+  md: { text: 'md', icon: IconSize.lg, gap: 6 },
+  sm: { text: 'sm', icon: IconSize.md, gap: 4 },
+  xs: { text: 'xs', icon: IconSize.xs, gap: 2 },
 };
+
 const DurationDisplay = ({ duration, size = 'md' }: Props) => {
   const s = sizes[size];
   const text = duration >= 60 ? `${duration / 60}h` : duration + 'min';
   return (
-    <Group spacing={s.gap}>
+    <Group spacing={s.gap} noWrap>
       <IconClock size={s.icon} />
       <Text inline size={s.text}>
         {text}

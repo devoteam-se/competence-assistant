@@ -32,22 +32,21 @@ const PageEvent = () => {
   const { schedulingStarted, isLoading: loadingSchedule } = useSchedule(eventId);
 
   const isLoading = loadingEvent || loadingSchedule;
-
-  useEffect(() => {
-    if (isLoading || !path) return;
-    if (!path.isSessionPage && !path.isSchedulePage) {
-      return navigate(schedulingStarted ? path.schedule : path.sessions, { replace: true });
-    }
-
-    if (path.isSchedulePage && !schedulingStarted) {
-      navigate(path.sessions, { replace: true });
-    }
-  }, [isLoading, navigate, schedulingStarted, path]);
-
   const title = event ? event.name : '';
   const subtitle = event ? dateShort(event.startDate) : '';
   const onGoingVoting = event?.votingEndDate && dayjs().isBefore(event.votingEndDate);
   const banner = onGoingVoting && <VotingEndsBanner date={event.votingEndDate!} />;
+
+  useEffect(() => {
+    if (isLoading || !path) return;
+    if (!path.isSessionPage && !path.isSchedulePage) {
+      return navigate(schedulingStarted && !onGoingVoting ? path.schedule : path.sessions, { replace: true });
+    }
+
+    if (path.isSchedulePage && !schedulingStarted) {
+      return navigate(path.sessions, { replace: true });
+    }
+  }, [isLoading, navigate, schedulingStarted, onGoingVoting, path]);
 
   const actions =
     !onGoingVoting && schedulingStarted

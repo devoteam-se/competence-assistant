@@ -23,7 +23,7 @@ const Helpers = ({ event }: { event: EventContentArg['event'] }) => {
       <HoverCard.Dropdown>
         <Stack spacing="xs">
           <Group spacing="xs" noWrap>
-            <IconClipboardList size={IconSize.md} color={theme.colors.blue[6]} />
+            <IconClipboardList size={IconSize.md} color={theme.colors.blue[6]} style={{ flexShrink: 0 }} />
             <Text inline size="xs">
               {t('votes', { count: attendees })}
             </Text>
@@ -34,7 +34,7 @@ const Helpers = ({ event }: { event: EventContentArg['event'] }) => {
               <Stack spacing={0}>
                 {hostConflicts.map(({ name, id, sessions }) => (
                   <Group spacing="xs" key={id} noWrap>
-                    <IconAlertTriangle size={IconSize.md} color={theme.colors.red[6]} />
+                    <IconAlertTriangle size={IconSize.md} color={theme.colors.red[6]} style={{ flexShrink: 0 }} />
                     <Text inline size="xs">
                       {t('hostConflicts', { name, sessions: sessions.map(({ title }) => title).join(', ') })}
                     </Text>
@@ -49,7 +49,7 @@ const Helpers = ({ event }: { event: EventContentArg['event'] }) => {
               <Stack spacing={0}>
                 {attendeeConflicts.map(({ session, overlapCount }) => (
                   <Group spacing="xs" key={session.id} noWrap>
-                    <IconUserExclamation size={IconSize.md} color={theme.colors.yellow[6]} />
+                    <IconUserExclamation size={IconSize.md} color={theme.colors.yellow[6]} style={{ flexShrink: 0 }} />
                     <Text inline size="xs">
                       {t('voteConflicts', { session: session.title, count: overlapCount })}
                     </Text>
